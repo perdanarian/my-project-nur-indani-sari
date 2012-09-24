@@ -107,6 +107,13 @@ public class PanelTambahPublikasi extends JPanel {
         tombolBatal = new JButton ("Batal");
         tombolBatal.setBounds(290, 280, 110, 30);
         add(tombolBatal);
+        tombolBatal.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tombolBatalAction();
+            }
+        });
 
         setVisible(true);
     }
@@ -139,4 +146,8 @@ public void tombolSimpanAction() {
                                          + "\nPENERBIT   : " + majalah.getPenerbit()
                                          + "\nTAHUN      : " + majalah.getTahun());
     }
+}
+
+public void tombolBatalAction() {
+    System.exit(0);
 }}
