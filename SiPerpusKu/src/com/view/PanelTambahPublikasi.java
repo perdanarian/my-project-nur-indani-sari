@@ -1,7 +1,10 @@
 package com.view;
 
+import com.model.Buku;
 import com.model.Perpustakaan;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class PanelTambahPublikasi extends JPanel {
@@ -37,6 +40,11 @@ public class PanelTambahPublikasi extends JPanel {
         radioMajalah = new JRadioButton ("Majalah");
         radioMajalah.setBounds(310,50,100, 50);
         add(radioMajalah);
+        
+        ButtonGroup radioGroup = new ButtonGroup();
+        radioGroup.add(radioBuku);
+        radioGroup.add(radioMajalah);
+
 
         labelKodeKoleksi = new JLabel ("Id Koleksi");
         labelKodeKoleksi.setBounds(50,90,100, 50);
@@ -87,10 +95,31 @@ public class PanelTambahPublikasi extends JPanel {
         tombolSimpan = new JButton ("Simpan");
         tombolSimpan.setBounds(95, 280, 110, 30);
         add(tombolSimpan);
+        tombolSimpan.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
 
         tombolBatal = new JButton ("Batal");
         tombolBatal.setBounds(290, 280, 110, 30);
         add(tombolBatal);
 
         setVisible(true);
-    }}
+    }
+
+public void tombolSimpanAction() {
+    if (radioBuku.isSelected()==true) {
+        Buku buku = new Buku();
+        buku.setIdKoleksi(textKodeKoleksi.getText());
+        buku.setJudul(textJudul.getText());
+        buku.setPenulis(textPenulis.getText());
+        buku.setPenerbit(textPenerbit.getText());
+        buku.setTahun(textTahun.getText());
+        Perpustakaan.tambahPublikasi(buku);
+        JOpti
+        
+    }
+}}
