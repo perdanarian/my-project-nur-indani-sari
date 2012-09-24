@@ -1,6 +1,7 @@
 package com.view;
 
 import com.model.Buku;
+import com.model.Majalah;
 import com.model.Perpustakaan;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -99,7 +100,7 @@ public class PanelTambahPublikasi extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                tombolSimpanAction();
             }
         });
 
@@ -119,7 +120,23 @@ public void tombolSimpanAction() {
         buku.setPenerbit(textPenerbit.getText());
         buku.setTahun(textTahun.getText());
         Perpustakaan.tambahPublikasi(buku);
-        JOpti
-        
+        JOptionPane.showMessageDialog( this, "ID BUKU : " + buku.getIdKoleksi()
+                                         + "\nJUDUL    : " + buku.getJudul()
+                                         + "\nPENULIS  : " + buku.getPenulis()
+                                         + "\nPENERBIT : " + buku.getPenerbit()
+                                         + "\nTAHUN    : " + buku.getTahun()); 
+    } else {
+        Majalah majalah = new Majalah();
+        majalah.setIdKoleksi(textKodeKoleksi.getText());
+        majalah.setJudul(textJudul.getText());
+        majalah.setPenulis(textPenulis.getText());
+        majalah.setPenerbit(textPenerbit.getText());
+        majalah.setTahun(textTahun.getText());
+        Perpustakaan.tambahPublikasi(majalah);
+        JOptionPane.showMessageDialog(this, "ID BUKU : " + majalah.getIdKoleksi()
+                                         + "\nJUDUL    : " + majalah.getJudul()
+                                         + "\nPENULIS  : " + majalah.getPenulis()
+                                         + "\nPENERBIT : " + majalah.getPenerbit()
+                                         + "\nTAHUN    : " + majalah.getTahun());
     }
 }}
