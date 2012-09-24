@@ -120,7 +120,7 @@ public void tombolSimpanAction() {
         buku.setPenerbit(textPenerbit.getText());
         buku.setTahun(textTahun.getText());
         Perpustakaan.tambahPublikasi(buku);
-        JOptionPane.showMessageDialog( this, "ID BUKU : " + buku.getIdKoleksi()
+        JOptionPane.showMessageDialog( this, "~~BUKU~~\nID BUKU  : " + buku.getIdKoleksi()
                                          + "\nJUDUL    : " + buku.getJudul()
                                          + "\nPENULIS  : " + buku.getPenulis()
                                          + "\nPENERBIT : " + buku.getPenerbit()
@@ -133,10 +133,10 @@ public void tombolSimpanAction() {
         majalah.setPenerbit(textPenerbit.getText());
         majalah.setTahun(textTahun.getText());
         Perpustakaan.tambahPublikasi(majalah);
-        JOptionPane.showMessageDialog(this, "ID BUKU : " + majalah.getIdKoleksi()
-                                         + "\nJUDUL    : " + majalah.getJudul()
-                                         + "\nPENULIS  : " + majalah.getPenulis()
-                                         + "\nPENERBIT : " + majalah.getPenerbit()
-                                         + "\nTAHUN    : " + majalah.getTahun());
+        JOptionPane.showMessageDialog(this, "~~MAJALAH~~\nID MAJALAH : " + majalah.getIdKoleksi()
+                                         + "\nJUDUL      : " + majalah.getJudul()
+                                         + "\nPENULIS    : " + majalah.getPenulis()
+                                         + "\nPENERBIT   : " + majalah.getPenerbit()
+                                         + "\nTAHUN      : " + majalah.getTahun());
     }
 }}
