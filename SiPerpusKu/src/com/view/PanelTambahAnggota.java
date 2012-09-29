@@ -1,7 +1,10 @@
 package com.view;
 
+import com.model.Anggota;
 import com.model.Perpustakaan;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class PanelTambahAnggota extends JPanel {
@@ -42,11 +45,32 @@ public class PanelTambahAnggota extends JPanel {
         tombolSimpan = new JButton ("Simpan");
         tombolSimpan.setBounds(95, 280, 110, 30);
         add(tombolSimpan);
+        tombolSimpan.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+                tombolSimpanAction();
+            }
+        });
 
         tombolBatal = new JButton ("Batal");
         tombolBatal.setBounds(290, 280, 110, 30);
         add(tombolBatal);
+        tombolBatal.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+                tombolBatalAction();
+            }
+        });
 
         setVisible(true);
+    }
+    public void tombolSimpanAction() {
+        Anggota agg = new Anggota();
+        agg.setIdAnggota(textKodeAnggota.getText());
+        agg.setNama(textNama.getText());
+        Perpustakaan.tambahAnggota(agg);
+        JOptionPane.showMessageDialog( this,"Id Anggota : "+agg.getIdAnggota() +
+                                          "\nNama       : "+agg.getNama());
+    }
+    public void tombolBatalAction() {
+        System.exit(0);
     }
 }
