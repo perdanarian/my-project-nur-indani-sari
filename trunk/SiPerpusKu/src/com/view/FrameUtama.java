@@ -1,6 +1,5 @@
 package com.view;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -9,8 +8,10 @@ public class FrameUtama extends JFrame implements ActionListener{
    private JMenuBar menuBar;
    private JMenu menuPublikasi;
    private JMenu menuAnggota;
+   private JMenu menuPinjaman;
    private JMenuItem menuTambahPublikasi;
    private JMenuItem menuTambahAnggota;
+   private JMenuItem menuTambahPinjaman;
    
    
    public FrameUtama () {
@@ -26,12 +27,14 @@ public class FrameUtama extends JFrame implements ActionListener{
        menuBar.add(menuPublikasi);
        menuAnggota = new JMenu("Anggota");
        menuBar.add(menuAnggota);
+       menuPinjaman = new JMenu ("Pinjaman");
+       menuBar.add(menuPinjaman);
        menuTambahPublikasi = new JMenuItem("Tambah Publikasi");
        menuPublikasi.add(menuTambahPublikasi);
        menuTambahAnggota = new JMenuItem("Tambah Anggota");
        menuAnggota.add(menuTambahAnggota);
-       menuPublikasi.add(menuTambahPublikasi);
-       menuAnggota.add(menuTambahAnggota);
+       menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
+       menuPinjaman.add(menuTambahPinjaman);
        
        menuTambahPublikasi.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -45,6 +48,11 @@ public class FrameUtama extends JFrame implements ActionListener{
            }
        
        });
+       menuTambahPinjaman.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                menuTambahPinjamanAction ();
+            }
+        });
 //       menuTambahPublikasi.addActionListener(this);
    }
 
@@ -68,11 +76,14 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelTambahAnggota]");
    }
 
+   public void menuTambahPinjamanAction () {
+        JDialog testFrame = new JDialog();
+        PanelTambahPinjaman testPinjaman = new PanelTambahPinjaman();
+        testFrame.getContentPane().add(testPinjaman);
+        testFrame.setSize(500, 400);
+        testFrame.setVisible(true);
+        testFrame.setTitle("Design Preview [PanelTambahPinjaman]");
+   }
     public void actionPerformed(ActionEvent e) {
-//        throw new UnsupportedOperationException("Not supported yet.");
-    }
-   
-  
-       
-   
+    }  
 }
