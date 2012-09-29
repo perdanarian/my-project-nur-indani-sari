@@ -8,10 +8,8 @@ public class FrameUtama extends JFrame implements ActionListener{
    private JMenuBar menuBar;
    private JMenu menuPublikasi;
    private JMenu menuAnggota;
-   private JMenu menuPinjaman;
    private JMenuItem menuTambahPublikasi;
    private JMenuItem menuTambahAnggota;
-   private JMenuItem menuTambahPinjaman;
    
    
    public FrameUtama () {
@@ -27,14 +25,10 @@ public class FrameUtama extends JFrame implements ActionListener{
        menuBar.add(menuPublikasi);
        menuAnggota = new JMenu("Anggota");
        menuBar.add(menuAnggota);
-       menuPinjaman = new JMenu ("Pinjaman");
-       menuBar.add(menuPinjaman);
        menuTambahPublikasi = new JMenuItem("Tambah Publikasi");
        menuPublikasi.add(menuTambahPublikasi);
        menuTambahAnggota = new JMenuItem("Tambah Anggota");
        menuAnggota.add(menuTambahAnggota);
-       menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
-       menuPinjaman.add(menuTambahPinjaman);
        
        menuTambahPublikasi.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -48,41 +42,24 @@ public class FrameUtama extends JFrame implements ActionListener{
            }
        
        });
-       menuTambahPinjaman.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                menuTambahPinjamanAction ();
-            }
-        });
-//       menuTambahPublikasi.addActionListener(this);
    }
 
    public void menuTambahPublikasiAction () {
-        JFrame testFrame = new JFrame();
+        JDialog testFrame = new JDialog();
         PanelTambahPublikasi testPanel = new PanelTambahPublikasi();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelTambahPublikasi]");
-       
-       
+        testFrame.setTitle("Design Preview [PanelTambahPublikasi]");    
    }
    
    public void menuTambahAnggotaAction () {
-       JFrame testFrame = new JFrame();
+       JDialog testFrame = new JDialog();
         PanelTambahAnggota testAnggota = new PanelTambahAnggota();
         testFrame.getContentPane().add(testAnggota);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
         testFrame.setTitle("Design Preview [PanelTambahAnggota]");
-   }
-
-   public void menuTambahPinjamanAction () {
-        JDialog testFrame = new JDialog();
-        PanelTambahPinjaman testPinjaman = new PanelTambahPinjaman();
-        testFrame.getContentPane().add(testPinjaman);
-        testFrame.setSize(500, 400);
-        testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelTambahPinjaman]");
    }
     public void actionPerformed(ActionEvent e) {
     }  
