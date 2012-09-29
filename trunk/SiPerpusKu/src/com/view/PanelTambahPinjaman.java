@@ -1,7 +1,14 @@
 package com.view;
 
+import com.model.Anggota;
+import com.model.Buku;
+import com.model.Majalah;
 import com.model.Perpustakaan;
+import com.model.Pinjaman;
+import com.model.Publikasi;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class PanelTambahPinjaman extends JPanel {
@@ -42,11 +49,39 @@ public class PanelTambahPinjaman extends JPanel {
         tombolSimpan = new JButton ("Simpan");
         tombolSimpan.setBounds(95, 280, 110, 30);
         add(tombolSimpan);
+        tombolSimpan.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+                tombolSimpanAction();
+            }
+        });
 
         tombolBatal = new JButton ("Batal");
         tombolBatal.setBounds(290, 280, 110, 30);
         add(tombolBatal);
+        tombolBatal.addActionListener(new ActionListener () {
+            public void actionPerformed(ActionEvent e) {
+                tombolBatalAction();
+            }
+        });
 
         setVisible(true);
+    }
+    public void tombolSimpanAction() {
+        Publikasi pub = new Buku();
+        Publikasi pub1 = new Majalah();
+        Anggota agg = new Anggota();
+        Pinjaman pin = new Pinjaman();
+        agg.setIdAnggota(textKodeAnggota.getText());
+        pub.setIdKoleksi(textKodeKoleksi.getText());
+        pub1.setIdKoleksi(textKodeKoleksi.getText());
+        pin.setPeminjam(agg);
+        pin.setPublikasi(pub);
+        pin.setPublikasi(pub1);
+        Perpustakaan.tambahPinjaman(pin);
+        JOptionPane.showMessageDialog( this,"Id Anggota : "+ pin.getPeminjam().getIdAnggota() +
+                                          "\nId Koleksi : "+ pin.getPublikasi().getIdKoleksi());
+    }
+    public void tombolBatalAction() {
+        System.exit(0);
     }
 }
