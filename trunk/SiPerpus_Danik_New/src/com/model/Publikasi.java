@@ -1,5 +1,8 @@
-package com.model; 
-public abstract class Publikasi implements Sirkulasi {
+package com.model;
+
+import java.io.Serializable;
+
+public abstract class Publikasi implements Sirkulasi,Serializable {
     private String idKoleksi;    
     public String judul;        
     private String penulis;      

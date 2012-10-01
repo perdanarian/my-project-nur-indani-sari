@@ -1,5 +1,15 @@
 package com.model;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 public class Perpustakaan {
     public static String NAMA = "PERPUSTAKAAN KU"; 
     public static ArrayList <Publikasi> DAFTAR_PUBLIKASI = new ArrayList<Publikasi>();
@@ -47,5 +57,45 @@ public class Perpustakaan {
                 hasil += " Tanggal KembaLi: " +DAFTAR_PINJAMAN.get(i).getTanggalKembali();}
             return hasil;}
         return null;
+    }
+    public static void simpanFilePublikasi() throws IOException {
+        FileOutputStream outStream = null;
+        if (DAFTAR_PUBLIKASI.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Daftar Publikasi Kosong");
+        }
+    else {
+            
+            try {
+                File outFile = new File("publikasi.dat");
+                outStream = new FileOutputStream(outFile);
+                ObjectOutputStream outObjectStream = new ObjectOutputStream(outStream);
+                outObjectStream.writeObject(DAFTAR_PUBLIKASI);
+                outStream.close(); 
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }       
+    }
+    }
+    public static void bacaFilePublikasi() {
+        try {
+            FileInputStream inStream = null;
+            File inFile = new File("publikasi.dat");
+            inStream = new FileInputStream(inFile);
+            ObjectInputStream inObjectStream = null;
+            try {
+                inObjectStream = new ObjectInputStream(inStream);
+            } catch (IOException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                DAFTAR_PUBLIKASI = (ArrayList<Publikasi>) inObjectStream.readObject();
+            } catch (IOException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
