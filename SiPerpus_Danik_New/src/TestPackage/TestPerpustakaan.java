@@ -5,12 +5,18 @@ import com.model.Buku;
 import com.model.Pinjaman;
 import com.model.Publikasi;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class TestPerpustakaan {   
-  public static void main (String args[]) { 
+  public static void main (String args[])  {
       System.out.println("Nama Perpustakaan = " + Perpustakaan.NAMA);
       Anggota test2 = new Anggota();
       test2.setNama("Danik");
-      test2.setIdAnggota("02");
+        try {
+            test2.setIdAnggota("1234567890");
+        } catch (Exception ex) {
+            Logger.getLogger(TestPerpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
       Perpustakaan.tambahAnggota(test2);
       System.out.print("Daftar Anggota");
       System.out.println(Perpustakaan.bacaDaftarAnggota());
