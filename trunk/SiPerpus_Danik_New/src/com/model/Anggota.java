@@ -11,8 +11,7 @@ public class Anggota {
         }
         else {
             throw new Exception("panjang idAnggota salah");
-        }
-        this.idAnggota = idAnggota;}
+        }}
     public String getNama() {
         return nama;}
     public void setNama(String nama) {
