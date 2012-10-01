@@ -11,7 +11,7 @@ public class TestAnggota {
         Anggota agg1 = new Anggota();
         agg1.setNama("Denok");
         try {
-            agg1.setIdAnggota("123456789");
+            agg1.setIdAnggota("1234567890");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             Logger.getLogger(TestAnggota.class.getName()).log(Level.SEVERE, null, ex);
