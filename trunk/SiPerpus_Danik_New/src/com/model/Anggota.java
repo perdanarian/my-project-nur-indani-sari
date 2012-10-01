@@ -5,7 +5,13 @@ public class Anggota {
     public Anggota() {}
     public String getIdAnggota() {
         return idAnggota;}
-    public void setIdAnggota(String idAnggota) {
+    public void setIdAnggota(String idAnggota) throws Exception {
+        if (idAnggota.length()==10) {
+            this.idAnggota=idAnggota;
+        }
+        else {
+            throw new Exception("panjang idAnggota salah");
+        }
         this.idAnggota = idAnggota;}
     public String getNama() {
         return nama;}
