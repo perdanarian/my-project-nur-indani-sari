@@ -5,6 +5,8 @@ import com.model.Perpustakaan;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class PanelTambahAnggota extends JPanel {
@@ -64,7 +66,11 @@ public class PanelTambahAnggota extends JPanel {
     }
     public void tombolSimpanAction() {
         Anggota agg = new Anggota();
-        agg.setIdAnggota(textKodeAnggota.getText());
+        try {
+            agg.setIdAnggota(textKodeAnggota.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(PanelTambahAnggota.class.getName()).log(Level.SEVERE, null, ex);
+        }
         agg.setNama(textNama.getText());
         Perpustakaan.tambahAnggota(agg);
         JOptionPane.showMessageDialog( this,"Id Anggota : "+agg.getIdAnggota() +
