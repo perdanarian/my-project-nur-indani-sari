@@ -14,5 +14,6 @@ public class TestFrameUtama {
     public static void main(String[] args) {
 FrameUtama testFrame = new FrameUtama();
 testFrame.setVisible(true);
+testFrame.setTitle("Perpustakaan Universitas Sanata Dharma Yogyakarta");
 }
 }
