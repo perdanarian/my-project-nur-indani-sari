@@ -66,7 +66,8 @@ public class Perpustakaan {
     else {
             
             try {
-                File outFile = new File("publikasi.dat");
+//                File outFile = new File("publikasi.dat");
+                File outFile = new File("publikasi.txt");
                 outStream = new FileOutputStream(outFile);
                 ObjectOutputStream outObjectStream = new ObjectOutputStream(outStream);
                 outObjectStream.writeObject(DAFTAR_PUBLIKASI);
@@ -79,7 +80,8 @@ public class Perpustakaan {
     public static void bacaFilePublikasi() {
         try {
             FileInputStream inStream = null;
-            File inFile = new File("publikasi.dat");
+//            File inFile = new File("publikasi.dat");
+            File inFile = new File("publikasi.txt");
             inStream = new FileInputStream(inFile);
             ObjectInputStream inObjectStream = null;
             try {
@@ -98,4 +100,94 @@ public class Perpustakaan {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void simpanFileAnggota() throws IOException {
+        FileOutputStream outStream = null;
+        if (DAFTAR_ANGGOTA.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Daftar Anggota Kosong");
+        }
+    else {
+
+            try {
+//                File outFile = new File("anggota.dat");
+                File outFile = new File("anggota.txt");
+                outStream = new FileOutputStream(outFile);
+                String data = new String();
+                for(int i=0; i<DAFTAR_ANGGOTA.size();i++) {
+                    data += DAFTAR_ANGGOTA.get(i).getIdAnggota() + "\t" + DAFTAR_ANGGOTA.get(i).getNama() + "\n";
+                }
+//                outStream.write(data.getBytes());
+                outStream.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    }
+
+//   
+
+
+
+
+
+//    public static void bacaFileAnggota()  {
+//        try {
+//            FileInputStream inStream = null;
+////            File inFile = new File("anggota.dat");
+//            File inFile = new File("anggota.txt");
+//            inStream = new FileInputStream(inFile);
+//            if (DAFTAR_ANGGOTA.isEmpty() == false) {
+//                String data = new String();
+//                for (int i = 0; i < DAFTAR_ANGGOTA.size(); i++) {
+//                    System.out.println(data += DAFTAR_ANGGOTA.get(i).getIdAnggota() + "\t" + DAFTAR_ANGGOTA.get(i).getNama() + "\n");
+//                }
+//            }
+//            inStream.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//
+//    }
+    public static void bacaFileAnggota()  {
+        try {
+            FileInputStream inStream = null;
+            String data = new String();
+            File inFile = new File("anggota.txt");
+            try {
+                inStream = new FileInputStream(inFile);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int a;
+            while ((a = inStream.read()) != -1) {
+                data = data + (char) a;
+            }
+            inStream.close();
+            System.out.println(data);
+        } catch (IOException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+//    public String bacaFileAnggota() {
+//        FileInputStream inStream = null;
+//        String data = new String();
+//        try {
+////            File inFile = new File("anggota.dat");
+//            File inFile = new File("anggota.txt");
+//            inStream = new FileInputStream(inFile);
+//            int result;
+//            while ((result = inStream.read()) != -1) {
+//                data = data + (char) result;
+//            }
+//            inStream.close();
+//        } catch (IOException ex) {
+//            System.out.println("Input atau Ouput Error");
+//        }
+//        return data;
+//    }
+
+
+
 }

@@ -16,7 +16,7 @@ public class Anggota {
         }
         else {
             try {
-                throw new Exception("panjang idAnggota salah");
+                throw new Exception("panjang idAnggota harus 10 digit");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
                 Logger.getLogger(Anggota.class.getName()).log(Level.SEVERE, null, ex);

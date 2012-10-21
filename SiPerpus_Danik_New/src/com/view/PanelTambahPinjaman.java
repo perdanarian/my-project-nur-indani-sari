@@ -9,8 +9,6 @@ import com.model.Publikasi;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 
 public class PanelTambahPinjaman extends JPanel {
@@ -73,11 +71,7 @@ public class PanelTambahPinjaman extends JPanel {
         Publikasi pub1 = new Majalah();
         Anggota agg = new Anggota();
         Pinjaman pin = new Pinjaman();
-        try {
-            agg.setIdAnggota(textKodeAnggota.getText());
-        } catch (Exception ex) {
-            Logger.getLogger(PanelTambahPinjaman.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        agg.setIdAnggota(textKodeAnggota.getText());
         pub.setIdKoleksi(textKodeKoleksi.getText());
         pub1.setIdKoleksi(textKodeKoleksi.getText());
         pin.setPeminjam(agg);
