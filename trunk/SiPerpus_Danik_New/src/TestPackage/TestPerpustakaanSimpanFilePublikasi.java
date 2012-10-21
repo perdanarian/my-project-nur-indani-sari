@@ -10,7 +10,6 @@ import com.model.Perpustakaan;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author Asus
@@ -18,12 +17,11 @@ import java.util.logging.Logger;
 public class TestPerpustakaanSimpanFilePublikasi {
 public static void main(String[] args) throws IOException {
 Buku buku1 = new Buku();
-buku1.setIsbn("92-001");
+buku1.setIsbn("92-001"); 
 try {
 buku1.setIdKoleksi("9876543210");
 } catch (Exception ex) {
-Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName
-()).log(Level.SEVERE, null, ex);
+Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName()).log(Level.SEVERE, null, ex);
 }
 buku1.setJudul("Orkom");
 buku1.setPenerbit("Andi");
@@ -34,8 +32,7 @@ buku2.setIsbn("92-002");
 try {
 buku2.setIdKoleksi("9876543211");
 } catch (Exception ex) {
-Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName
-()).log(Level.SEVERE, null, ex);
+Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName()).log(Level.SEVERE, null, ex);
 }
 buku2.setJudul("Pemrograman Java");
 buku2.setPenerbit("Andi");
