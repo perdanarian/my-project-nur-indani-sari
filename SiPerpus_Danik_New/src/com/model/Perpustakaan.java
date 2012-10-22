@@ -66,8 +66,7 @@ public class Perpustakaan {
     else {
             
             try {
-//                File outFile = new File("publikasi.dat");
-                File outFile = new File("publikasi.txt");
+                File outFile = new File("publikasi.dat");
                 outStream = new FileOutputStream(outFile);
                 ObjectOutputStream outObjectStream = new ObjectOutputStream(outStream);
                 outObjectStream.writeObject(DAFTAR_PUBLIKASI);
@@ -80,8 +79,7 @@ public class Perpustakaan {
     public static void bacaFilePublikasi() {
         try {
             FileInputStream inStream = null;
-//            File inFile = new File("publikasi.dat");
-            File inFile = new File("publikasi.txt");
+            File inFile = new File("publikasi.dat");
             inStream = new FileInputStream(inFile);
             ObjectInputStream inObjectStream = null;
             try {
@@ -108,51 +106,24 @@ public class Perpustakaan {
     else {
 
             try {
-//                File outFile = new File("anggota.dat");
-                File outFile = new File("anggota.txt");
+                File outFile = new File("anggota.dat");
                 outStream = new FileOutputStream(outFile);
                 String data = new String();
                 for(int i=0; i<DAFTAR_ANGGOTA.size();i++) {
-                    data += DAFTAR_ANGGOTA.get(i).getIdAnggota() + "\t" + DAFTAR_ANGGOTA.get(i).getNama() + "\n";
+                    data += "Id Anggota : " + DAFTAR_ANGGOTA.get(i).getIdAnggota() + "\tNama : " + DAFTAR_ANGGOTA.get(i).getNama() + "\n";
                 }
-//                outStream.write(data.getBytes());
+                outStream.write(data.getBytes());
                 outStream.close();
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     }
-
-//   
-
-
-
-
-
-//    public static void bacaFileAnggota()  {
-//        try {
-//            FileInputStream inStream = null;
-////            File inFile = new File("anggota.dat");
-//            File inFile = new File("anggota.txt");
-//            inStream = new FileInputStream(inFile);
-//            if (DAFTAR_ANGGOTA.isEmpty() == false) {
-//                String data = new String();
-//                for (int i = 0; i < DAFTAR_ANGGOTA.size(); i++) {
-//                    System.out.println(data += DAFTAR_ANGGOTA.get(i).getIdAnggota() + "\t" + DAFTAR_ANGGOTA.get(i).getNama() + "\n");
-//                }
-//            }
-//            inStream.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//
-//    }
     public static void bacaFileAnggota()  {
         try {
             FileInputStream inStream = null;
             String data = new String();
-            File inFile = new File("anggota.txt");
+            File inFile = new File("anggota.dat");
             try {
                 inStream = new FileInputStream(inFile);
             } catch (FileNotFoundException ex) {
@@ -170,24 +141,46 @@ public class Perpustakaan {
 
     }
 
-//    public String bacaFileAnggota() {
-//        FileInputStream inStream = null;
-//        String data = new String();
-//        try {
-////            File inFile = new File("anggota.dat");
-//            File inFile = new File("anggota.txt");
-//            inStream = new FileInputStream(inFile);
-//            int result;
-//            while ((result = inStream.read()) != -1) {
-//                data = data + (char) result;
-//            }
-//            inStream.close();
-//        } catch (IOException ex) {
-//            System.out.println("Input atau Ouput Error");
-//        }
-//        return data;
-//    }
+public static void simpanFilePinjaman() throws IOException {
+        FileOutputStream outStream = null;
+        if (DAFTAR_PINJAMAN.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Daftar Pinjaman Kosong");
+        }
+    else {
 
+            try {
+                File outFile = new File("pinjaman.dat");
+                outStream = new FileOutputStream(outFile);
+                String data = new String();
+                for(int i=0; i<DAFTAR_PINJAMAN.size();i++) {
+                    data += "Id Anggota : " + DAFTAR_PINJAMAN.get(i).getPeminjam().getIdAnggota() + "\tId Koleksi : " + DAFTAR_PINJAMAN.get(i).getPublikasi().getIdKoleksi() + "\n";
+                }
+                outStream.write(data.getBytes());
+                outStream.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    }
+    public static void bacaFilePinjaman()  {
+        try {
+            FileInputStream inStream = null;
+            String data = new String();
+            File inFile = new File("pinjaman.dat");
+            try {
+                inStream = new FileInputStream(inFile);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int a;
+            while ((a = inStream.read()) != -1) {
+                data = data + (char) a;
+            }
+            inStream.close();
+            System.out.println(data);
+        } catch (IOException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-
+    }
 }

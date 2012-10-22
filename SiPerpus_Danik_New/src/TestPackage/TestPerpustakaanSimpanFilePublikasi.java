@@ -1,19 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package TestPackage;
-
 import com.model.Buku;
 import com.model.Perpustakaan;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/**
- *
- * @author Asus
- */
 public class TestPerpustakaanSimpanFilePublikasi {
 public static void main(String[] args) throws IOException {
 Buku buku1 = new Buku();
