@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public abstract class Publikasi implements Sirkulasi,Serializable {
     private String idKoleksi;    
-    public String judul;        
+    private String judul;
     private String penulis;      
     private String penerbit;     
     private String tahun;
