@@ -133,13 +133,6 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelTambahPublikasi]");    
    }
    public void menuSimpanFilePublikasiAction () throws IOException {
-         Publikasi pubb = new Publikasi() {
-
-            public int hitungDenda(int lamaPinjam) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-        };
-         Perpustakaan.tambahPublikasi(pubb);
          Perpustakaan.simpanFilePublikasi();
    }
 
@@ -161,8 +154,6 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelTambahAnggota]");
    }
    public void menuSimpanFileAnggotaAction () throws IOException {
-         Anggota ang = new Anggota();
-         Perpustakaan.tambahAnggota(ang);
          Perpustakaan.simpanFileAnggota();
    }
    public void menuBacaFileAnggotaAction () {
@@ -182,8 +173,6 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelTambahPinjaman]");
    }
    public void menuSimpanFilePinjamanAction () throws IOException {
-         Pinjaman pin = new Pinjaman();
-         Perpustakaan.tambahPinjaman(pin);
          Perpustakaan.simpanFilePinjaman();
    }
    public void menuBacaFilePinjamanAction () {
