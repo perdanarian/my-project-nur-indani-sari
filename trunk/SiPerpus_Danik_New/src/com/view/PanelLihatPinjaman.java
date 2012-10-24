@@ -24,7 +24,7 @@ public class PanelLihatPinjaman extends JPanel {
         labelPanel = new JLabel("FORM LIHAT PINJAMAN");
         labelPanel.setBounds(100, 15, 300, 40);
         add(labelPanel);
-
+        Perpustakaan.bacaFilePinjaman();
         areaPinjaman = new JTextArea(Perpustakaan.bacaDaftarPinjaman());
         areaPinjaman.setBounds(100, 50, 300, 250);
         add(areaPinjaman);

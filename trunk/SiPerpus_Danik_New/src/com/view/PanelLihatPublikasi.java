@@ -24,7 +24,7 @@ public class PanelLihatPublikasi extends JPanel {
         labelPanel = new JLabel("FORM LIHAT PUBLIKASI");
         labelPanel.setBounds(100, 15, 300, 40);
         add(labelPanel);
-
+        Perpustakaan.bacaFilePublikasi();
         areaPublikasi = new JTextArea(Perpustakaan.bacaDaftarPublikasi());
         areaPublikasi.setBounds(100, 50, 300, 250);
         add(areaPublikasi);

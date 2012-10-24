@@ -24,7 +24,7 @@ public class PanelLihatAnggota extends JPanel {
         labelPanel = new JLabel("FORM LIHAT ANGGOTA");
         labelPanel.setBounds(100, 15, 300, 40);
         add(labelPanel);
-
+        Perpustakaan.bacaFileAnggota();
         areaAnggota = new JTextArea(Perpustakaan.bacaDaftarAnggota());
         areaAnggota.setBounds(100, 50, 300, 250);
         add(areaAnggota);
