@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -181,6 +182,12 @@ public static void simpanFilePinjaman() throws IOException {
         } catch (IOException ex) {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    public static void simpanTabelPublikasi() {
+        if (DAFTAR_PUBLIKASI.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Daftar Publikasi Kosong");
+        }else {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","mhs105314068", "mhs105314068");
+        }
     }
 }
