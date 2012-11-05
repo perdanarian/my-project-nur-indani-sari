@@ -191,7 +191,7 @@ public static void simpanFilePinjaman() throws IOException {
         }
     }
 public static void tambahTabelPublikasi (Publikasi publikasi) throws SQLException {
-        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","mhs105314068", "mhs105314068");
+        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
         java.sql.Statement statement = conn.createStatement();
         String sql = "insert into publikasi (id_koleksi, judul) values ('"+publikasi.getIdKoleksi() + "','" + publikasi.getJudul()+"')";
         statement.executeUpdate(sql);
