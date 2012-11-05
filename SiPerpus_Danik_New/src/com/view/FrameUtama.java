@@ -21,6 +21,9 @@ public class FrameUtama extends JFrame implements ActionListener{
    private JMenuItem menuTambahPinjaman;
    private JMenuItem menuSimpanFilePublikasi;
    private JMenuItem menuBacaFilePublikasi;
+   private JMenuItem menuLihatPublikasi;
+   private JMenuItem menuSimpanPublikasiKeTable;
+   private JMenuItem menuBacaPublikasiDariTable;
    private JMenuItem menuSimpanFileAnggota;
    private JMenuItem menuBacaFileAnggota;
    private JMenuItem menuSimpanFilePinjaman;
@@ -45,9 +48,15 @@ public class FrameUtama extends JFrame implements ActionListener{
        menuTambahPublikasi = new JMenuItem("Tambah Publikasi");
        menuSimpanFilePublikasi = new JMenuItem("Simpan");
        menuBacaFilePublikasi = new JMenuItem ("Baca");
+       menuLihatPublikasi = new JMenuItem("Lihat Publikasi");
+       menuSimpanPublikasiKeTable = new JMenuItem("Simpan Ke Tabel");
+       menuBacaPublikasiDariTable = new JMenuItem("Baca Dari Tabel");
        menuPublikasi.add(menuTambahPublikasi);
        menuPublikasi.add(menuSimpanFilePublikasi);
        menuPublikasi.add(menuBacaFilePublikasi);
+       menuPublikasi.add(menuLihatPublikasi);
+       menuPublikasi.add(menuSimpanPublikasiKeTable);
+       menuPublikasi.add(menuBacaPublikasiDariTable);
        menuTambahAnggota = new JMenuItem("Tambah Anggota");
        menuSimpanFileAnggota = new JMenuItem("Simpan");
        menuBacaFileAnggota = new JMenuItem ("Baca");
@@ -122,6 +131,11 @@ public class FrameUtama extends JFrame implements ActionListener{
                menuBacaFilePinjamanAction();
            }
        });
+       menuLihatPublikasi.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               menuLihatPublikasiAction();
+           }
+       });
    }
 
    public void menuTambahPublikasiAction () {
@@ -182,6 +196,14 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
         testFrame.setTitle("Panel Lihat Pinjaman");
+   }
+   public void menuLihatPublikasiAction() {
+        JDialog testFrame = new JDialog();
+        PanelLihatPublikasi test = new PanelLihatPublikasi(Perpustakaan.DAFTAR_PUBLIKASI);
+        testFrame.getContentPane().add(test);
+        testFrame.setSize(500, 400);
+        testFrame.setVisible(true);
+        testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
    }
    public void actionPerformed(ActionEvent e) {
     }  
