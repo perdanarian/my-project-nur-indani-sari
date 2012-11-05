@@ -16,7 +16,7 @@ Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName()).log(Level.
 buku1.setJudul("Orkom");
 buku1.setPenerbit("Andi");
 buku1.setPenulis("jogiyanto");
-buku1.setTahun("2001");
+buku1.setTahun(2001);
 Buku buku2 = new Buku();
 buku2.setIsbn("92-002");
 try {
@@ -27,7 +27,7 @@ Logger.getLogger(TestPerpustakaanSimpanFilePublikasi.class.getName()).log(Level.
 buku2.setJudul("Pemrograman Java");
 buku2.setPenerbit("Andi");
 buku2.setPenulis("jogiyanto");
-buku2.setTahun("2001");
+buku2.setTahun(2001);
 Perpustakaan.tambahPublikasi(buku1);
 Perpustakaan.tambahPublikasi(buku2);
 Perpustakaan.simpanFilePublikasi();

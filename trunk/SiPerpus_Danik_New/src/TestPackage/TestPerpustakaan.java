@@ -19,7 +19,7 @@ public class TestPerpustakaan {
       test.setIdKoleksi("1234512345");
       test.setPenerbit("Erlangga");
       test.setPenulis("Toni");
-      test.setTahun("1998");
+      test.setTahun(1998);
       Perpustakaan.tambahPublikasi(test);
       System.out.print("Daftar Publikasi");
       System.out.println(Perpustakaan.bacaDaftarPublikasi());

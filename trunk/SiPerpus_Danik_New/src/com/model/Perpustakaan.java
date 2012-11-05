@@ -190,44 +190,82 @@ public static void simpanFilePinjaman() throws IOException {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-public static void tambahTabelPublikasi (Publikasi publikasi) throws SQLException {
+public static void tambahTabelPublikasi (Publikasi publikasi){
         Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-        java.sql.Statement statement = conn.createStatement();
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String sql = "insert into publikasi (id_koleksi, judul) values ('"+publikasi.getIdKoleksi() + "','" + publikasi.getJudul()+"')";
-        statement.executeUpdate(sql);
-        conn.close();
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    public static void simpanTabelPublikasi() throws SQLException {
+    public static void simpanTabelPublikasi() {
         if (DAFTAR_PUBLIKASI.isEmpty()) {
             JOptionPane.showMessageDialog(null,"Daftar Publikasi Kosong");
         } else {
             Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-            java.sql.Statement statement = conn.createStatement();
+            try {
+                java.sql.Statement statement = conn.createStatement();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
             for (int i=0; i<DAFTAR_PUBLIKASI.size(); i++){
                 String sql = "insert into publikasi (id_koleksi, judul) values ('"+DAFTAR_PUBLIKASI.get(i).getIdKoleksi() + "','" + DAFTAR_PUBLIKASI.get(i).getJudul()+ "')";
             }
-            conn.close();
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
-    public static void bacaTabelPublikasi() throws SQLException {
+    public static void bacaTabelPublikasi(){
        DAFTAR_PUBLIKASI= new ArrayList<Publikasi>();
        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-        java.sql.Statement statement = conn.createStatement();
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
        String sql = "select * from publikasi";
-       ResultSet result = statement.executeQuery(sql);
+       ResultSet result = null;
+        try {
+            result = statement.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while (result.next()) {
+                Publikasi temp = new Publikasi() {
 
-       while (result.next()){
-           Publikasi temp = new Publikasi() {
-
-                public int hitungDenda(int lamaPinjam) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            };
-           temp.setIdKoleksi(result.getString("id_koleksi"));
-           temp.setJudul(result.getString("judul"));
-           DAFTAR_PUBLIKASI.add(temp);
-       }
-       conn.close();
+                    public int hitungDenda(int lamaPinjam) {
+                        throw new UnsupportedOperationException("Not supported yet.");
+                    }
+                };
+                temp.setIdKoleksi(result.getString("id_koleksi"));
+                temp.setJudul(result.getString("judul"));
+                DAFTAR_PUBLIKASI.add(temp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
    }
 
 

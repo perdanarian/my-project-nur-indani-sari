@@ -10,7 +10,7 @@ public abstract class Publikasi implements Sirkulasi,Serializable {
     private String judul;
     private String penulis;      
     private String penerbit;     
-    private String tahun;
+    private int tahun;
     public Publikasi() {}
     public String getIdKoleksi() { 
         return idKoleksi;}
@@ -38,9 +38,9 @@ public abstract class Publikasi implements Sirkulasi,Serializable {
         return penerbit;}
     public void setPenerbit(String penerbit) {   
         this.penerbit = penerbit;}
-    public String getTahun() {
+    public int getTahun() {
         return tahun;}
-    public void setTahun(String tahun) {
+    public void setTahun(int tahun) {
         this.tahun = tahun;}
 }
 

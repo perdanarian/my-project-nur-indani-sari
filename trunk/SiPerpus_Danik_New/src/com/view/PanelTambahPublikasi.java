@@ -6,6 +6,9 @@ import com.model.Perpustakaan;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class PanelTambahPublikasi extends JPanel {
@@ -100,7 +103,11 @@ public class PanelTambahPublikasi extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                tombolSimpanAction();
+             
+                    tombolSimpanAction();
+               
+
+                
             }
         });
 
@@ -125,8 +132,9 @@ public void tombolSimpanAction() {
         buku.setJudul(textJudul.getText());
         buku.setPenulis(textPenulis.getText());
         buku.setPenerbit(textPenerbit.getText());
-        buku.setTahun(textTahun.getText());
+        buku.setTahun(Integer.parseInt(textTahun.getText()));
         Perpustakaan.tambahPublikasi(buku);
+        Perpustakaan.tambahTabelPublikasi(buku);
         JOptionPane.showMessageDialog( this, "~~BUKU~~\nID BUKU  : " + buku.getIdKoleksi()
                                          + "\nJUDUL    : " + buku.getJudul()
                                          + "\nPENULIS  : " + buku.getPenulis()
@@ -138,8 +146,9 @@ public void tombolSimpanAction() {
         majalah.setJudul(textJudul.getText());
         majalah.setPenulis(textPenulis.getText());
         majalah.setPenerbit(textPenerbit.getText());
-        majalah.setTahun(textTahun.getText());
+        majalah.setTahun(Integer.parseInt(textTahun.getText()));
         Perpustakaan.tambahPublikasi(majalah);
+        Perpustakaan.tambahTabelPublikasi(majalah);
         JOptionPane.showMessageDialog(this, "~~MAJALAH~~\nID MAJALAH : " + majalah.getIdKoleksi()
                                          + "\nJUDUL      : " + majalah.getJudul()
                                          + "\nPENULIS    : " + majalah.getPenulis()
