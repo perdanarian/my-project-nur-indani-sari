@@ -21,14 +21,14 @@ import oracle.jdbc.pool.OracleDataSource;
  *
  * @author Asus
  */
-public class TestPublikasiTableModel {
+public class TestPublikasiTable {
 public static void main(String[] args) throws SQLException {
 ArrayList<Publikasi> test1 = new ArrayList<Publikasi>();
 Buku test11= new Buku();
 try {
 test11.setIdKoleksi("1234567890");
 test11.setJudul("Pemrograman Java");
-} catch (Exception ex) { Logger.getLogger(TestPublikasiTableModel.class.getName()).log(Level.SEVERE,	null,
+} catch (Exception ex) { Logger.getLogger(TestPublikasiTable.class.getName()).log(Level.SEVERE,	null,
 ex);
 }
 
@@ -36,7 +36,7 @@ Buku test12= new Buku();
 try {
 test12.setIdKoleksi("1234567891");
 test12.setJudul("Struktur Data");
-} catch (Exception ex) { Logger.getLogger(TestPublikasiTableModel.class.getName()).log(Level.SEVERE,	null,
+} catch (Exception ex) { Logger.getLogger(TestPublikasiTable.class.getName()).log(Level.SEVERE,	null,
 ex);
 }
 
