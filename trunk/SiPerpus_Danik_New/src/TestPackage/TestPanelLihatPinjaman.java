@@ -5,7 +5,7 @@
 
 package TestPackage;
 
-import com.view.PanelLihatPinjaman;
+import com.view.PanelBacaPinjaman;
 import javax.swing.JFrame;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 public class TestPanelLihatPinjaman {
 public static void main(String[] args) {
         JFrame testFrame = new JFrame();
-        PanelLihatPinjaman testPanel = new PanelLihatPinjaman();
+        PanelBacaPinjaman testPanel = new PanelBacaPinjaman();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);

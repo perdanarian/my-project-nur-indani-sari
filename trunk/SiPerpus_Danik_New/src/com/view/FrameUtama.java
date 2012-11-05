@@ -138,7 +138,7 @@ public class FrameUtama extends JFrame implements ActionListener{
 
    public void menuBacaFilePublikasiAction () {
         JFrame testFrame = new JFrame();
-        PanelLihatPublikasi testPanel = new PanelLihatPublikasi();
+        PanelBacaPublikasi testPanel = new PanelBacaPublikasi();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
@@ -158,7 +158,7 @@ public class FrameUtama extends JFrame implements ActionListener{
    }
    public void menuBacaFileAnggotaAction () {
         JFrame testFrame = new JFrame();
-        PanelLihatAnggota testPanel = new PanelLihatAnggota();
+        PanelBacaAnggota testPanel = new PanelBacaAnggota();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
@@ -177,7 +177,7 @@ public class FrameUtama extends JFrame implements ActionListener{
    }
    public void menuBacaFilePinjamanAction () {
         JFrame testFrame = new JFrame();
-        PanelLihatPinjaman testPanel = new PanelLihatPinjaman();
+        PanelBacaPinjaman testPanel = new PanelBacaPinjaman();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
