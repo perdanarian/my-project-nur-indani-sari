@@ -5,20 +5,20 @@
 
 package TestPackage;
 
-import com.view.PanelBacaPinjaman;
+import com.view.PanelBacaAnggota;
 import javax.swing.JFrame;
 
 /**
  *
  * @author Asus
  */
-public class TestPanelLihatPinjaman {
+public class TestPanelBacaAnggota {
 public static void main(String[] args) {
         JFrame testFrame = new JFrame();
-        PanelBacaPinjaman testPanel = new PanelBacaPinjaman();
+        PanelBacaAnggota testPanel = new PanelBacaAnggota();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Panel Lihat Pinjaman");
+        testFrame.setTitle("Panel Lihat Anggota");
 }
 }
