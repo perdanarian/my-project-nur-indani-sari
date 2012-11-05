@@ -14,11 +14,11 @@ import javax.swing.JTextArea;
  *
  * @author Asus
  */
-public class PanelLihatAnggota extends JPanel {
+public class PanelBacaAnggota extends JPanel {
     private JLabel labelPanel;
     private JTextArea areaAnggota;
 
-    public PanelLihatAnggota() {
+    public PanelBacaAnggota() {
         setLayout(null);
 
         labelPanel = new JLabel("FORM LIHAT ANGGOTA");

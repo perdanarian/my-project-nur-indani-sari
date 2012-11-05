@@ -5,7 +5,7 @@
 
 package TestPackage;
 
-import com.view.PanelLihatPublikasi;
+import com.view.PanelBacaPublikasi;
 import javax.swing.JFrame;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 public class TestPanelLihatPublikasi {
     public static void main(String[] args) {
         JFrame testFrame = new JFrame();
-        PanelLihatPublikasi testPanel = new PanelLihatPublikasi();
+        PanelBacaPublikasi testPanel = new PanelBacaPublikasi();
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);

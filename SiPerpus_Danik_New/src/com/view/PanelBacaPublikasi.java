@@ -14,20 +14,20 @@ import javax.swing.JTextArea;
  *
  * @author Asus
  */
-public class PanelLihatPinjaman extends JPanel {
+public class PanelBacaPublikasi extends JPanel {
     private JLabel labelPanel;
-    private JTextArea areaPinjaman;
+    private JTextArea areaPublikasi;
 
-    public PanelLihatPinjaman() {
+    public PanelBacaPublikasi() {
         setLayout(null);
 
-        labelPanel = new JLabel("FORM LIHAT PINJAMAN");
+        labelPanel = new JLabel("FORM LIHAT PUBLIKASI");
         labelPanel.setBounds(100, 15, 300, 40);
         add(labelPanel);
-        Perpustakaan.bacaFilePinjaman();
-        areaPinjaman = new JTextArea(Perpustakaan.bacaDaftarPinjaman());
-        areaPinjaman.setBounds(100, 50, 300, 250);
-        add(areaPinjaman);
+        Perpustakaan.bacaFilePublikasi();
+        areaPublikasi = new JTextArea(Perpustakaan.bacaDaftarPublikasi());
+        areaPublikasi.setBounds(100, 50, 300, 250);
+        add(areaPublikasi);
         setVisible(true);
     }
 }
