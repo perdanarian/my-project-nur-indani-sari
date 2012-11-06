@@ -27,9 +27,12 @@ public PanelLihatPublikasi(ArrayList<Publikasi> data) {
 this.data = data;
 setLayout(new BorderLayout());
 
-labelPanel = new JLabel("Form Lihat Publikasi"); labelPanel.setHorizontalAlignment(JLabel.CENTER); add(labelPanel,BorderLayout.NORTH);
+labelPanel = new JLabel("Form Lihat Publikasi");
+labelPanel.setHorizontalAlignment(JLabel.CENTER);
+add(labelPanel,BorderLayout.NORTH);
 
-tablePublikasi = new JTable(); tablePublikasi.setModel(new PublikasiTableModel(data));
+tablePublikasi = new JTable();
+tablePublikasi.setModel(new PublikasiTableModel(data));
 add(tablePublikasi,BorderLayout.CENTER);
 
 }
