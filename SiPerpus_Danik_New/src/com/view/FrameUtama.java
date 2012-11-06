@@ -1,9 +1,6 @@
 package com.view;
 
-import com.model.Anggota;
 import com.model.Perpustakaan;
-import com.model.Pinjaman;
-import com.model.Publikasi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -26,8 +23,14 @@ public class FrameUtama extends JFrame implements ActionListener{
    private JMenuItem menuBacaPublikasiDariTable;
    private JMenuItem menuSimpanFileAnggota;
    private JMenuItem menuBacaFileAnggota;
+   private JMenuItem menuLihatAnggota;
+   private JMenuItem menuSimpanAnggotaKeTable;
+   private JMenuItem menuBacaAnggotaDariTable;
    private JMenuItem menuSimpanFilePinjaman;
    private JMenuItem menuBacaFilePinjaman;
+   private JMenuItem menuLihatPinjaman;
+   private JMenuItem menuSimpanPinjamanKeTable;
+   private JMenuItem menuBacaPinjamanDariTable;
    
    
    public FrameUtama () {
@@ -60,15 +63,27 @@ public class FrameUtama extends JFrame implements ActionListener{
        menuTambahAnggota = new JMenuItem("Tambah Anggota");
        menuSimpanFileAnggota = new JMenuItem("Simpan");
        menuBacaFileAnggota = new JMenuItem ("Baca");
+       menuLihatAnggota = new JMenuItem("Lihat Anggota");
+       menuSimpanAnggotaKeTable = new JMenuItem("Simpan Ke Tabel");
+       menuBacaAnggotaDariTable = new JMenuItem("Baca Dari Tabel");
        menuAnggota.add(menuTambahAnggota);
        menuAnggota.add(menuSimpanFileAnggota);
        menuAnggota.add(menuBacaFileAnggota);
+       menuAnggota.add(menuLihatAnggota);
+       menuAnggota.add(menuSimpanAnggotaKeTable);
+       menuAnggota.add(menuBacaAnggotaDariTable);
        menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
        menuSimpanFilePinjaman = new JMenuItem("Simpan");
        menuBacaFilePinjaman = new JMenuItem ("Baca");
+       menuLihatPinjaman = new JMenuItem("Lihat Pinjaman");
+       menuSimpanPinjamanKeTable = new JMenuItem("Simpan Ke Tabel");
+       menuBacaPinjamanDariTable = new JMenuItem("Baca Dari Tabel");
        menuPinjaman.add(menuTambahPinjaman);
        menuPinjaman.add(menuSimpanFilePinjaman);
        menuPinjaman.add(menuBacaFilePinjaman);
+       menuPinjaman.add(menuLihatPinjaman);
+       menuPinjaman.add(menuSimpanPinjamanKeTable);
+       menuPinjaman.add(menuBacaPinjamanDariTable);
        
        menuTambahPublikasi.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -204,6 +219,30 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
         testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
+   }
+   public void menuSimpanPublikasiKeTableAction(){
+
+   }
+   public void menuBacaPublikasiDariTableAction(){
+
+   }
+   public void menuLihatAnggotaAction() {
+
+   }
+   public void menuSimpanAnggotaKeTableAction(){
+
+   }
+   public void menuBacaAnggotaDariTableAction(){
+
+   }
+   public void menuLihatPinjamanAction() {
+
+   }
+   public void menuSimpanPinjamanKeTableAction(){
+
+   }
+   public void menuBacaPinjamanDariTableAction(){
+
    }
    public void actionPerformed(ActionEvent e) {
     }  
