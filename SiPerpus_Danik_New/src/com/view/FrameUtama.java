@@ -261,7 +261,7 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
    }
    public void menuSimpanPublikasiKeTableAction(){
-        Perpustakaan.bacaTabelPublikasi();
+        Perpustakaan.simpanTabelPublikasi();
    }
    public void menuBacaPublikasiDariTableAction(){
         Perpustakaan.bacaTabelPublikasi();
@@ -289,7 +289,7 @@ public class FrameUtama extends JFrame implements ActionListener{
         testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
    }
    public void menuSimpanPinjamanKeTableAction(){
-        Perpustakaan.bacaTabelPinjaman();
+        Perpustakaan.simpanTabelPinjaman();
    }
    public void menuBacaPinjamanDariTableAction(){
         Perpustakaan.bacaTabelPinjaman();
