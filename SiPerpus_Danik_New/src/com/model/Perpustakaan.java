@@ -1,5 +1,4 @@
 package com.model;
-import java.beans.Statement;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,7 +7,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -267,6 +265,165 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
+    public static void tambahTabelAnggota (Anggota anggota){
+        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = "insert into anggota (id_anggota, nama) values ('"+anggota.getIdAnggota() + "','" + anggota.getNama()+"')";
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void simpanTabelAnggota() {
+        if (DAFTAR_ANGGOTA.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Daftar Anggota Kosong");
+        } else {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+            try {
+                java.sql.Statement statement = conn.createStatement();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (int i=0; i<DAFTAR_ANGGOTA.size(); i++){
+                String sql = "insert into anggota (id_anggota, nama) values ('"+DAFTAR_ANGGOTA.get(i).getIdAnggota() + "','" + DAFTAR_ANGGOTA.get(i).getNama()+ "')";
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    public static void bacaTabelAnggota(){
+       DAFTAR_ANGGOTA= new ArrayList<Anggota>();
+       Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       String sql = "select * from anggota";
+       ResultSet result = null;
+        try {
+            result = statement.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while (result.next()) {
+                Anggota temp = new Anggota() {
 
+                    public int hitungDenda(int lamaPinjam) {
+                        throw new UnsupportedOperationException("Not supported yet.");
+                    }
+                };
+                temp.setIdAnggota(result.getString("id_anggota"));
+                temp.setNama(result.getString("nama"));
+                DAFTAR_ANGGOTA.add(temp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
 
+   public static void tambahTabelPinjaman (Pinjaman pinjaman){
+        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String sql = "insert into pinjaman (id_anggota, id_koleksi) values ('"+pinjaman.getPeminjam().getIdAnggota() + "','" + pinjaman.getPublikasi().getIdKoleksi()+"')";
+        try {
+            statement.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void simpanTabelPinjaman() {
+        if (DAFTAR_PINJAMAN.isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Daftar Pinjaman Kosong");
+        } else {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+            try {
+                java.sql.Statement statement = conn.createStatement();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            for (int i=0; i<DAFTAR_PINJAMAN.size(); i++){
+                String sql = "insert into pinjaman (id_anggota, id_koleksi) values ('"+DAFTAR_PINJAMAN.get(i).getPeminjam().getIdAnggota() + "','" + DAFTAR_PINJAMAN.get(i).getPublikasi().getIdKoleksi()+ "')";
+            }
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    public static void bacaTabelPinjaman(){
+       DAFTAR_PINJAMAN= new ArrayList<Pinjaman>();
+       Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
+        java.sql.Statement statement = null;
+        try {
+            statement = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       String sql = "select * from pinjaman";
+       ResultSet result = null;
+        try {
+            result = statement.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while (result.next()) {
+                Pinjaman temp = new Pinjaman();
+
+                Anggota agg = new Anggota();
+                Publikasi pub = new Publikasi() {
+
+                    public int hitungDenda(int lamaPinjam) {
+                        throw new UnsupportedOperationException("Not supported yet.");
+                    }
+                };
+
+                agg.setIdAnggota(result.getString("id anggota"));
+                pub.setIdKoleksi(result.getString("id koleksi"));
+                temp.setPeminjam(agg);
+                temp.setPublikasi(pub);
+                DAFTAR_PINJAMAN.add(temp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   }
 }
