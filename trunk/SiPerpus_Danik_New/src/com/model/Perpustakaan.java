@@ -189,20 +189,12 @@ public static void simpanFilePinjaman() throws IOException {
         }
     }
 public static void tambahTabelPublikasi (Publikasi publikasi){
-        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-        java.sql.Statement statement = null;
         try {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl", "MHS115314023", "MHS115314023");
+            java.sql.Statement statement = null;
             statement = conn.createStatement();
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String sql = "insert into publikasi (id_koleksi, judul) values ('"+publikasi.getIdKoleksi() + "','" + publikasi.getJudul()+"')";
-        try {
+            String sql = "insert into publikasi (id_koleksi, judul) values ('" + publikasi.getIdKoleksi() + "','" + publikasi.getJudul() + "')";
             statement.executeUpdate(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
@@ -266,20 +258,12 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
         }
    }
     public static void tambahTabelAnggota (Anggota anggota){
-        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-        java.sql.Statement statement = null;
         try {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl", "MHS115314023", "MHS115314023");
+            java.sql.Statement statement = null;
             statement = conn.createStatement();
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String sql = "insert into anggota (id_anggota, nama) values ('"+anggota.getIdAnggota() + "','" + anggota.getNama()+"')";
-        try {
+            String sql = "insert into anggota (id_anggota, nama) values ('" + anggota.getIdAnggota() + "','" + anggota.getNama() + "')";
             statement.executeUpdate(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
@@ -344,20 +328,12 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
    }
 
    public static void tambahTabelPinjaman (Pinjaman pinjaman){
-        Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
-        java.sql.Statement statement = null;
         try {
+            Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl", "MHS115314023", "MHS115314023");
+            java.sql.Statement statement = null;
             statement = conn.createStatement();
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String sql = "insert into pinjaman (id_anggota, id_koleksi) values ('"+pinjaman.getPeminjam().getIdAnggota() + "','" + pinjaman.getPublikasi().getIdKoleksi()+"')";
-        try {
+            String sql = "insert into pinjaman (id_anggota, id_koleksi) values ('" + pinjaman.getPeminjam().getIdAnggota() + "','" + pinjaman.getPublikasi().getIdKoleksi() + "')";
             statement.executeUpdate(sql);
-        } catch (SQLException ex) {
-            Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
