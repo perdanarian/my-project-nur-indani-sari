@@ -67,6 +67,7 @@ public class PanelTambahAnggota extends JPanel {
         agg.setIdAnggota(textKodeAnggota.getText());
         agg.setNama(textNama.getText());
         Perpustakaan.tambahAnggota(agg);
+        Perpustakaan.tambahTabelAnggota(agg);
         JOptionPane.showMessageDialog( this,"Id Anggota : "+agg.getIdAnggota() +
                                           "\nNama       : "+agg.getNama());
     }
