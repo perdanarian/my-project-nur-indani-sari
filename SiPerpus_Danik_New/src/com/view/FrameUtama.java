@@ -8,7 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 
-public class FrameUtama extends JFrame implements ActionListener{
+public class FrameUtama extends JFrame {
    private JMenuBar menuBar;
    private JMenu menuPublikasi;
    private JMenu menuAnggota;
@@ -294,6 +294,5 @@ public class FrameUtama extends JFrame implements ActionListener{
    public void menuBacaPinjamanDariTableAction(){
         Perpustakaan.bacaTabelPinjaman();
    }
-   public void actionPerformed(ActionEvent e) {
-    }  
+     
 }
