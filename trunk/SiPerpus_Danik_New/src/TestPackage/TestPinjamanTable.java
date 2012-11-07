@@ -53,13 +53,14 @@ public static void main(String[] args) throws SQLException {
         try {
             agg1.setIdAnggota("1234567891");
             pub1.setIdKoleksi("0987654321");
+            test1.add(test11);
+            test1.add(test12);
         } catch (Exception ex) {
             Logger.getLogger(TestPinjamanTable.class.getName()).log(Level.SEVERE, null,
                     ex);
         }
 
-        test1.add(test11);
-        test1.add(test12);
+       
 
         Perpustakaan.tambahTabelPinjaman(test11);
         Perpustakaan.tambahTabelPinjaman(test12);
