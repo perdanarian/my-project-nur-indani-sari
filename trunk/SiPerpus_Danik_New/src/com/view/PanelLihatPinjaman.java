@@ -27,7 +27,7 @@ public PanelLihatPinjaman(ArrayList<Pinjaman> data) {
 this.data = data;
 setLayout(new BorderLayout());
 
-labelPanel = new JLabel("Form Lihat Publikasi");
+labelPanel = new JLabel("Form Lihat Pinjaman");
 labelPanel.setHorizontalAlignment(JLabel.CENTER);
 add(labelPanel,BorderLayout.NORTH);
 
