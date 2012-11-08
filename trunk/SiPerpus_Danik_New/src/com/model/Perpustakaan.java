@@ -268,7 +268,7 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
             Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl", "MHS115314023", "MHS115314023");
             java.sql.Statement statement = null;
             statement = conn.createStatement();
-            String sql = "insert into anggota (id_anggota, nama) values ('" + anggota.getIdAnggota() + "','" + anggota.getNama() + "')";
+            String sql = "insert into anggota (idAnggota, nama) values ('" + anggota.getIdAnggota() + "','" + anggota.getNama() + "')";
             statement.executeUpdate(sql);
             conn.close();
         } catch (SQLException ex) {
@@ -319,7 +319,7 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
                         throw new UnsupportedOperationException("Not supported yet.");
                     }
                 };
-                temp.setIdAnggota(result.getString("id_anggota"));
+                temp.setIdAnggota(result.getString("idAnggota"));
                 temp.setNama(result.getString("nama"));
                 DAFTAR_ANGGOTA.add(temp);
             }
