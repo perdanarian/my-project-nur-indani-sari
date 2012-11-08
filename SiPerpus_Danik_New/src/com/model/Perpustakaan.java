@@ -193,7 +193,7 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
             Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl", "MHS115314023", "MHS115314023");
             java.sql.Statement statement = null;
             statement = conn.createStatement();
-            String sql = "insert into publikasi (idkoleksi, judul, penulis,penerbit,tahun) values ('" + publikasi.getIdKoleksi() + "','" + publikasi.getJudul() +
+            String sql = "insert into publikasi (idKoleksi, judul, penulis,penerbit,tahun) values ('" + publikasi.getIdKoleksi() + "','" + publikasi.getJudul() +
                     "','" + publikasi.getPenulis() + "','" + publikasi.getPenerbit() +
                     "','" + publikasi.getTahun() +"')";
             statement.executeUpdate(sql);
