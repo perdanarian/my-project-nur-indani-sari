@@ -253,6 +253,7 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
                 temp.setPenulis(result.getString("penulis"));
                 temp.setPenerbit(result.getString("penerbit"));
                 temp.setTahun(result.getInt("tahun"));
+                DAFTAR_PUBLIKASI.add(temp);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
