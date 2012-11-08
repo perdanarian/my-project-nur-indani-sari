@@ -211,7 +211,7 @@ public class FrameUtama extends JFrame {
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Panel Lihat Publikasi");
+        testFrame.setTitle("Panel Baca Publikasi");
    }
    
    public void menuTambahAnggotaAction () {
@@ -231,7 +231,7 @@ public class FrameUtama extends JFrame {
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Panel Lihat Anggota");
+        testFrame.setTitle("Panel Baca Anggota");
    }
    public void menuTambahPinjamanAction () {
         JDialog testFrame = new JDialog();
@@ -250,7 +250,7 @@ public class FrameUtama extends JFrame {
         testFrame.getContentPane().add(testPanel);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Panel Lihat Pinjaman");
+        testFrame.setTitle("Panel Baca Pinjaman");
    }
    public void menuLihatPublikasiAction() {
         JDialog testFrame = new JDialog();
@@ -258,7 +258,7 @@ public class FrameUtama extends JFrame {
         testFrame.getContentPane().add(test);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
+        testFrame.setTitle("Design Preview [PanelLihatPublikasi]");
    }
    public void menuSimpanPublikasiKeTableAction(){
         Perpustakaan.simpanTabelPublikasi();
