@@ -60,6 +60,6 @@ test1.add(test12);
 
 PinjamanTableModel test2 = new PinjamanTableModel(test1);
 System.out.println("idAnggota	:"	+	test2.getValueAt(0,	0)+"	idKoleksi:" +test2.getValueAt(0, 1));
-System.out.println("idggotaAn	:"	+	test2.getValueAt(1,	0)+"	idKoleksi:" +test2.getValueAt(1, 1));
+System.out.println("idAnggota	:"	+	test2.getValueAt(1,	0)+"	idKoleksi:" +test2.getValueAt(1, 1));
 }
 }
