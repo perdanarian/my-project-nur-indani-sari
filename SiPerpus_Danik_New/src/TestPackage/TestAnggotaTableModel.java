@@ -39,7 +39,7 @@ test1.add(test12);
 
 AnggotaTableModel test2 = new AnggotaTableModel(test1);
 System.out.println("idAnggota	:"	+	test2.getValueAt(0,	0)+"	nama:" +test2.getValueAt(0, 1));
-System.out.println("idggotaAn	:"	+	test2.getValueAt(1,	0)+"	nama:" +test2.getValueAt(1, 1));
+System.out.println("idAnggota	:"	+	test2.getValueAt(1,	0)+"	nama:" +test2.getValueAt(1, 1));
 }
 
 }

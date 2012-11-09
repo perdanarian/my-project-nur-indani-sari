@@ -53,6 +53,8 @@ public static void main(String[] args) throws SQLException {
         try {
             agg1.setIdAnggota("1234567891");
             pub1.setIdKoleksi("0987654321");
+            test12.setPeminjam(agg1);
+            test12.setPublikasi(pub1);
             test1.add(test11);
             test1.add(test12);
         } catch (Exception ex) {
