@@ -37,6 +37,7 @@ public class PanelTambahFotoAnggota extends JPanel{
             inisialisasi();
             file = new File("noPicture.png");
             image = ImageIO.read(file);
+            image.getGraphics();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
