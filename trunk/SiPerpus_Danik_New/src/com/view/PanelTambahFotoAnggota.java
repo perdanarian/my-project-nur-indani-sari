@@ -33,8 +33,9 @@ public class PanelTambahFotoAnggota extends JPanel{
     private BufferedImage image=null;
 
     public PanelTambahFotoAnggota(){
+        inisialisasi();
         try {
-            inisialisasi();
+            
             file = new File("noPicture.png");
             image = ImageIO.read(file);
             image.getGraphics();
@@ -131,7 +132,10 @@ public class PanelTambahFotoAnggota extends JPanel{
     public void paintComponents(Graphics g){
         try {
             image = ImageIO.read(file);
-            g.drawImage(image,50,50,300,200,0,0,image.getWidth(null),image.getHeight(null),null);
+            g.drawImage(image,
+                90, 90, 480, 360,
+                0, 0, image.getWidth(null), image.getHeight(null),
+                null);
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
