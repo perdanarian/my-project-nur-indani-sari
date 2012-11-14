@@ -78,7 +78,6 @@ public class PanelTambahPinjaman extends JPanel {
         pin.setPublikasi(pub);
         pin.setPublikasi(pub1);
         Perpustakaan.tambahPinjaman(pin);
-        Perpustakaan.tambahTabelPinjaman(pin);
         JOptionPane.showMessageDialog( this,"Id Anggota : "+ pin.getPeminjam().getIdAnggota() +
                                           "\nId Koleksi : "+ pin.getPublikasi().getIdKoleksi());
     }

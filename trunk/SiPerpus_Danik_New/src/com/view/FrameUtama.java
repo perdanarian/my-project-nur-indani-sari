@@ -28,9 +28,6 @@ public class FrameUtama extends JFrame {
    private JMenuItem menuBacaAnggotaDariTable;
    private JMenuItem menuSimpanFilePinjaman;
    private JMenuItem menuBacaFilePinjaman;
-   private JMenuItem menuLihatPinjaman;
-   private JMenuItem menuSimpanPinjamanKeTable;
-   private JMenuItem menuBacaPinjamanDariTable;
    
    
    public FrameUtama () {
@@ -75,15 +72,9 @@ public class FrameUtama extends JFrame {
        menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
        menuSimpanFilePinjaman = new JMenuItem("Simpan");
        menuBacaFilePinjaman = new JMenuItem ("Baca");
-       menuLihatPinjaman = new JMenuItem("Lihat Pinjaman");
-       menuSimpanPinjamanKeTable = new JMenuItem("Simpan Ke Tabel");
-       menuBacaPinjamanDariTable = new JMenuItem("Baca Dari Tabel");
        menuPinjaman.add(menuTambahPinjaman);
        menuPinjaman.add(menuSimpanFilePinjaman);
        menuPinjaman.add(menuBacaFilePinjaman);
-       menuPinjaman.add(menuLihatPinjaman);
-       menuPinjaman.add(menuSimpanPinjamanKeTable);
-       menuPinjaman.add(menuBacaPinjamanDariTable);
        
        menuTambahPublikasi.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
@@ -156,11 +147,6 @@ public class FrameUtama extends JFrame {
                menuLihatAnggotaAction();
            }
        });
-       menuLihatPinjaman.addActionListener(new ActionListener() {
-           public void actionPerformed(ActionEvent e) {
-               menuLihatPinjamanAction();
-           }
-       });
        menuSimpanPublikasiKeTable.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                menuSimpanPublikasiKeTableAction();
@@ -171,11 +157,6 @@ public class FrameUtama extends JFrame {
                menuSimpanAnggotaKeTableAction();
            }
        });
-       menuSimpanPinjamanKeTable.addActionListener(new ActionListener() {
-           public void actionPerformed(ActionEvent e) {
-               menuSimpanPinjamanKeTableAction();
-           }
-       });
        menuBacaPublikasiDariTable.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                menuBacaPublikasiDariTableAction();
@@ -184,11 +165,6 @@ public class FrameUtama extends JFrame {
        menuBacaAnggotaDariTable.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                menuBacaAnggotaDariTableAction();
-           }
-       });
-       menuBacaPinjamanDariTable.addActionListener(new ActionListener() {
-           public void actionPerformed(ActionEvent e) {
-               menuBacaPinjamanDariTableAction();
            }
        });
    }
@@ -279,20 +255,6 @@ public class FrameUtama extends JFrame {
    }
    public void menuBacaAnggotaDariTableAction(){
         Perpustakaan.bacaTabelAnggota();
-   }
-   public void menuLihatPinjamanAction() {
-        JDialog testFrame = new JDialog();
-        PanelLihatPinjaman test = new PanelLihatPinjaman(Perpustakaan.DAFTAR_PINJAMAN);
-        testFrame.getContentPane().add(test);
-        testFrame.setSize(500, 400);
-        testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelLihatPinjaman]");
-   }
-   public void menuSimpanPinjamanKeTableAction(){
-        Perpustakaan.simpanTabelPinjaman();
-   }
-   public void menuBacaPinjamanDariTableAction(){
-        Perpustakaan.bacaTabelPinjaman();
    }
      
 }
