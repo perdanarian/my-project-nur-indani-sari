@@ -30,24 +30,10 @@ public class PanelTambahFotoAnggota extends JPanel {
     public PanelTambahFotoAnggota() {
         setLayout(new BorderLayout());
 
-            if(file==null){
-            File img = new File("noPicture.png");
-            try {
-                image = ImageIO.read(img);
-            } catch (IOException ex) {
-                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-            }
-}
- else {
-            try {File img = new File(file.getName());
-
-                image = ImageIO.read(img);
-                image.getGraphics();
-            } catch (IOException ex) {
-                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-}
+//            if(file==null){
+            
+//}
+ 
 
 
 
@@ -86,13 +72,23 @@ public class PanelTambahFotoAnggota extends JPanel {
                 textKodeAnggotaAction();
             }
         });
+
+        File file = new File("noPicture.png");
+            try {
+                image = ImageIO.read(file);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     public void paintComponent(Graphics g) {
-        g.drawImage(image,
-                90, 90, 480, 360,
-                0, 0, image.getWidth(null), image.getHeight(null),
-                null);
+//        try {
+//            image = ImageIO.read(file);
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        g.drawImage(getImage(), 90, 90, 480, 360, 0, 0, getImage().getWidth(null), getImage().getHeight(null), null);
     }
  public void tombolSimpanAction(){
         try {
@@ -103,17 +99,18 @@ public class PanelTambahFotoAnggota extends JPanel {
             outStream = new FileOutputStream(fileBaru);
             //            os = new FileOutputStream(fileBaru);
             FileInputStream inStream = null;
-            inStream = new FileInputStream(file);
-            for (int i = 0; i < fileBaru.length(); i++) {
+            inStream = new FileInputStream(getFile());
+            for (int i = 0; i < file.length(); i++) {
                 try {
                     outStream.write(inStream.read());
                 } catch (IOException ex) {
                     Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        } catch (FileNotFoundException ex) {
+//            outStream.close();
+        } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
 
     }
 
@@ -123,17 +120,39 @@ public class PanelTambahFotoAnggota extends JPanel {
             int status = chooser.showOpenDialog(this);
             int APPROVE_ACTION = 0;
             if (status == APPROVE_ACTION) {
-                file = chooser.getSelectedFile();
+                setFile(chooser.getSelectedFile());
                 repaint();
             }
-            image = ImageIO.read(file);
-            image.getGraphics();
+            setImage(ImageIO.read(getFile()));
+            getImage().getGraphics();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void textKodeAnggotaAction() {
-    file = new File(textKodeAnggota.getText()+".png");
-    repaint();
+        try {
+            setFile(new File(textKodeAnggota.getText() + ".png"));
+            setImage(ImageIO.read(getFile()));
+            repaint();
+//                getGraphics();
+        } catch (IOException ex) {
+            Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public BufferedImage getImage() {
+        return image;
+    }
+
+    public void setImage(BufferedImage image) {
+        this.image = image;
     }
 }
