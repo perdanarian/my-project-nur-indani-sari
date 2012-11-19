@@ -1,6 +1,7 @@
 package com.view;
 
 import com.model.Perpustakaan;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class FrameUtama extends JFrame {
    private JMenuItem menuLihatAnggota;
    private JMenuItem menuSimpanAnggotaKeTable;
    private JMenuItem menuBacaAnggotaDariTable;
+   private JMenuItem menuTambahFotoAnggota;
    private JMenuItem menuSimpanFilePinjaman;
    private JMenuItem menuBacaFilePinjaman;
    
@@ -63,12 +65,14 @@ public class FrameUtama extends JFrame {
        menuLihatAnggota = new JMenuItem("Lihat Anggota");
        menuSimpanAnggotaKeTable = new JMenuItem("Simpan Ke Tabel");
        menuBacaAnggotaDariTable = new JMenuItem("Baca Dari Tabel");
+       menuTambahFotoAnggota =  new JMenuItem("Tambah Foto Anggota");
        menuAnggota.add(menuTambahAnggota);
        menuAnggota.add(menuSimpanFileAnggota);
        menuAnggota.add(menuBacaFileAnggota);
        menuAnggota.add(menuLihatAnggota);
        menuAnggota.add(menuSimpanAnggotaKeTable);
        menuAnggota.add(menuBacaAnggotaDariTable);
+       menuAnggota.add(menuTambahFotoAnggota);
        menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
        menuSimpanFilePinjaman = new JMenuItem("Simpan");
        menuBacaFilePinjaman = new JMenuItem ("Baca");
@@ -115,6 +119,11 @@ public class FrameUtama extends JFrame {
        menuBacaFileAnggota.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent e) {
                menuBacaFileAnggotaAction();
+           }
+       });
+        menuTambahFotoAnggota.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               menuTambahFotoAnggotaAction();
            }
        });
        menuTambahPinjaman.addActionListener(new ActionListener() {
@@ -256,5 +265,13 @@ public class FrameUtama extends JFrame {
    public void menuBacaAnggotaDariTableAction(){
         Perpustakaan.bacaTabelAnggota();
    }
-     
+   public void menuTambahFotoAnggotaAction() {
+       JFrame frame = new JFrame("Using Java2D");
+        frame.setLayout(new BorderLayout());
+        PanelTambahFotoAnggota gc = new PanelTambahFotoAnggota();
+        frame.add(gc, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 600);
+        frame.setVisible(true);
+   }
 }
