@@ -20,7 +20,7 @@ public static void main(String args[]) {
         PanelTambahFotoAnggota gc = new PanelTambahFotoAnggota();
         frame.add(gc, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 550);
+        frame.setSize(600, 600);
         frame.setVisible(true);
     }
 }
