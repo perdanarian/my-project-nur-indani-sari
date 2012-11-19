@@ -95,26 +95,24 @@ public class PanelTambahFotoAnggota extends JPanel {
                 null);
     }
  public void tombolSimpanAction(){
-        FileOutputStream os = null;
         try {
-            File fileBaru = new File(textKodeAnggota.getText()+".png");
-            os = new FileOutputStream(fileBaru);
-            FileInputStream is = new FileInputStream(file);
-            String data = new String();
-            FileInputStream inStream = new FileInputStream(file);
-            int a;
-            while ((a = inStream.read()) != -1) {
-                data = data + (char) a;
+            //        FileOutputStream os = null;
+            //        try {
+            File fileBaru = new File(textKodeAnggota.getText() + ".png");
+            FileOutputStream outStream = null;
+            outStream = new FileOutputStream(fileBaru);
+            //            os = new FileOutputStream(fileBaru);
+            FileInputStream inStream = null;
+            inStream = new FileInputStream(file);
+            for (int i = 0; i < fileBaru.length(); i++) {
+                try {
+                    outStream.write(inStream.read());
+                } catch (IOException ex) {
+                    Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            inStream.close();
-        } catch (IOException ex) {
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                os.close();
-            } catch (IOException ex) {
-                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
 
     }
