@@ -88,7 +88,7 @@ public class PanelTambahFotoAnggota extends JPanel {
 //        } catch (IOException ex) {
 //            Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        g.drawImage(getImage(), 90, 90, 480, 360, 0, 0, getImage().getWidth(null), getImage().getHeight(null), null);
+        g.drawImage(getImage(), 0, 0, 600, 550, 0, 0, getImage().getWidth(null), getImage().getHeight(null), null);
     }
  public void tombolSimpanAction(){
         try {
