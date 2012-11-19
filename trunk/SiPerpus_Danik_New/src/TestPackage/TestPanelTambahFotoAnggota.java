@@ -6,6 +6,7 @@
 package TestPackage;
 
 import com.view.PanelTambahFotoAnggota;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
@@ -13,12 +14,13 @@ import javax.swing.JFrame;
  * @author Asus
  */
 public class TestPanelTambahFotoAnggota {
-public static void main(String[] args) {
-        JFrame testFrame = new JFrame();
-        PanelTambahFotoAnggota testAnggota = new PanelTambahFotoAnggota();
-        testFrame.getContentPane().add(testAnggota);
-        testFrame.setSize(500, 400);
-        testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelTambahAnggota]");
+public static void main(String args[]) {
+        JFrame frame = new JFrame("Using Java2D");
+        frame.setLayout(new BorderLayout());
+        PanelTambahFotoAnggota gc = new PanelTambahFotoAnggota();
+        frame.add(gc, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 550);
+        frame.setVisible(true);
     }
 }
