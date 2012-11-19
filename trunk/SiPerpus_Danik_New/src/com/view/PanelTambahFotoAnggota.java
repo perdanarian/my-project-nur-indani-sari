@@ -31,9 +31,9 @@ public class PanelTambahFotoAnggota extends JPanel {
         setLayout(new BorderLayout());
 
 //            if(file==null){
-            
+
 //}
- 
+
 
 
 
@@ -110,7 +110,7 @@ public class PanelTambahFotoAnggota extends JPanel {
 //            outStream.close();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
 
     }
 
