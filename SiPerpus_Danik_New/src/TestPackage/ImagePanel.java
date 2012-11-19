@@ -23,7 +23,7 @@ public class ImagePanel extends JPanel {
     public ImagePanel() {
         try {
 // buka file. Cari file gambar lain di computer anda
-            File img = new File("295719_1880934441898_1797445619_1321512_433119823_n.jpg");
+            File img = new File("coba.jpg");
 // baca image
             logo = ImageIO.read(img);
 //img.close();

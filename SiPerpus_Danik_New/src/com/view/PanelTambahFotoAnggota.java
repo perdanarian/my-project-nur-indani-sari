@@ -5,18 +5,14 @@
 
 package com.view;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.awt.image.*;
+import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
+import javax.imageio.*;
 import javax.swing.*;
 
 /**
@@ -24,52 +20,55 @@ import javax.swing.*;
  * @author Asus
  */
 
-public class PanelTambahFotoAnggota extends JPanel{
+public class PanelTambahFotoAnggota extends JPanel {
     private JLabel labelKodeAnggota;
     private JTextField textKodeAnggota;
     private JButton tombolSimpan;
     private JButton tombolCariGambar;
-    private File file= null;
-    private BufferedImage image=null;
-
-    public PanelTambahFotoAnggota(){
-        inisialisasi();
-        try {
-
-            file = new File("noPicture.png");
-            image = ImageIO.read(file);
-            image.getGraphics();
-        } catch (IOException ex) {
-            Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public void inisialisasi(){
+    private File file;
+    private BufferedImage image;
+    public PanelTambahFotoAnggota() {
         setLayout(new BorderLayout());
+
+            if(file==null){
+            File img = new File("noPicture.png");
+            try {
+                image = ImageIO.read(img);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+ else {
+            try {File img = new File(file.getName());
+
+                image = ImageIO.read(img);
+                image.getGraphics();
+            } catch (IOException ex) {
+                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+}
 
 
 
         JPanel panelTombol = new JPanel();
         panelTombol.setLayout(new FlowLayout());
 
-        
-        //setGraphics(image);
         labelKodeAnggota = new JLabel("Kode");
-        labelKodeAnggota.setBounds(50, 500, 100, 50);
         panelTombol.add(labelKodeAnggota);
 
         textKodeAnggota = new JTextField();
         textKodeAnggota.setColumns(10);
-        textKodeAnggota.setBounds(150, 500, 200, 50);
         panelTombol.add(textKodeAnggota);
 
         tombolCariGambar = new JButton("Cari Gambar");
-        tombolCariGambar.setBounds(400, 500, 150, 50);
         panelTombol.add(tombolCariGambar);
 
         tombolSimpan = new JButton("Simpan");
-        tombolSimpan.setBounds(580, 500, 100, 50);
         panelTombol.add(tombolSimpan);
 
+//        panelTombol.setLayout(new BorderLayout());
+        add(panelTombol, BorderLayout.SOUTH);
         tombolSimpan.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent e) {
                 tombolSimpanAction();
@@ -87,60 +86,56 @@ public class PanelTambahFotoAnggota extends JPanel{
                 textKodeAnggotaAction();
             }
         });
-
-        add(panelTombol, BorderLayout.SOUTH);
-        setVisible(true);
-
     }
-    public void tombolSimpanAction(){
-        FileInputStream inStream = null;
+
+    public void paintComponent(Graphics g) {
+        g.drawImage(image,
+                90, 90, 480, 360,
+                0, 0, image.getWidth(null), image.getHeight(null),
+                null);
+    }
+ public void tombolSimpanAction(){
+        FileOutputStream os = null;
         try {
-//            File tujuan = new File(textKodeAnggota.getText() + ".jpg");
-            //        FileInputStream inStream = null;
+            File fileBaru = new File(textKodeAnggota.getText()+".png");
+            os = new FileOutputStream(fileBaru);
+            FileInputStream is = new FileInputStream(file);
             String data = new String();
-//            File inFile = new File(file);
-            inStream = new FileInputStream(file);
-            File tujuan = new File(textKodeAnggota.getText() + ".jpg");
+            FileInputStream inStream = new FileInputStream(file);
             int a;
             while ((a = inStream.read()) != -1) {
                 data = data + (char) a;
             }
             inStream.close();
-            System.out.println(data);
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
-                inStream.close();
+                os.close();
             } catch (IOException ex) {
                 Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
     }
 
     public void tombolCariGambarAction() {
-        JFileChooser chooser = new JFileChooser();
-        int status = chooser.showOpenDialog(this);
-        int APPROVE_ACTION = 0;
-        if (status==APPROVE_ACTION) {
-            file = chooser.getSelectedFile();
-            repaint();
-        }
-    }
-    public void textKodeAnggotaAction() {
-
-    }
-    public void paintComponents(Graphics g){
         try {
+            JFileChooser chooser = new JFileChooser();
+            int status = chooser.showOpenDialog(this);
+            int APPROVE_ACTION = 0;
+            if (status == APPROVE_ACTION) {
+                file = chooser.getSelectedFile();
+                repaint();
+            }
             image = ImageIO.read(file);
-            g.drawImage(image,
-                90, 90, 480, 360,
-                0, 0, image.getWidth(null), image.getHeight(null),
-                null);
+            image.getGraphics();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
+    public void textKodeAnggotaAction() {
+    file = new File(textKodeAnggota.getText()+".png");
+    repaint();
+    }
 }
