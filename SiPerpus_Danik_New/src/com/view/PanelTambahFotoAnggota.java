@@ -29,14 +29,6 @@ public class PanelTambahFotoAnggota extends JPanel {
     private BufferedImage image;
     public PanelTambahFotoAnggota() {
         setLayout(new BorderLayout());
-
-//            if(file==null){
-
-//}
-
-
-
-
         JPanel panelTombol = new JPanel();
         panelTombol.setLayout(new FlowLayout());
 
@@ -53,7 +45,6 @@ public class PanelTambahFotoAnggota extends JPanel {
         tombolSimpan = new JButton("Simpan");
         panelTombol.add(tombolSimpan);
 
-//        panelTombol.setLayout(new BorderLayout());
         add(panelTombol, BorderLayout.SOUTH);
         tombolSimpan.addActionListener(new ActionListener () {
             public void actionPerformed(ActionEvent e) {
@@ -82,22 +73,14 @@ public class PanelTambahFotoAnggota extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-//        try {
-//            image = ImageIO.read(file);
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        g.drawImage(getImage(), 0, 0, 600, 550, 0, 0, getImage().getWidth(null), getImage().getHeight(null), null);
+        g.drawImage(getImage(), 0, 0, 600, 550, 0, 0, getImage().getWidth(null),
+                getImage().getHeight(null), null);
     }
  public void tombolSimpanAction(){
         try {
-            //        FileOutputStream os = null;
-            //        try {
             File fileBaru = new File(textKodeAnggota.getText() + ".png");
             FileOutputStream outStream = null;
             outStream = new FileOutputStream(fileBaru);
-            //            os = new FileOutputStream(fileBaru);
             FileInputStream inStream = null;
             inStream = new FileInputStream(getFile());
             for (int i = 0; i < file.length(); i++) {
@@ -107,7 +90,6 @@ public class PanelTambahFotoAnggota extends JPanel {
                     Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-//            outStream.close();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -134,12 +116,10 @@ public class PanelTambahFotoAnggota extends JPanel {
             setFile(new File(textKodeAnggota.getText() + ".png"));
             setImage(ImageIO.read(getFile()));
             repaint();
-//                getGraphics();
         } catch (IOException ex) {
             Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     public File getFile() {
         return file;
     }
