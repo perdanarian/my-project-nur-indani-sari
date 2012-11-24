@@ -28,6 +28,17 @@ public class PanelTambahFotoAnggota extends JPanel {
     private File file;
     private BufferedImage image;
     public PanelTambahFotoAnggota() {
+        inisialisasi();
+
+        File file = new File("noPicture.png");
+            try {
+                image = ImageIO.read(file);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    public void inisialisasi(){
         setLayout(new BorderLayout());
         JPanel panelTombol = new JPanel();
         panelTombol.setLayout(new FlowLayout());
@@ -63,13 +74,6 @@ public class PanelTambahFotoAnggota extends JPanel {
                 textKodeAnggotaAction();
             }
         });
-
-        File file = new File("noPicture.png");
-            try {
-                image = ImageIO.read(file);
-            } catch (IOException ex) {
-                Logger.getLogger(PanelTambahFotoAnggota.class.getName()).log(Level.SEVERE, null, ex);
-            }
     }
 
     public void paintComponent(Graphics g) {
