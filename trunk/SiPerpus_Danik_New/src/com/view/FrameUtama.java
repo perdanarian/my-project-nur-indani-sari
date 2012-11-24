@@ -205,7 +205,7 @@ public class FrameUtama extends JFrame {
         testFrame.getContentPane().add(testAnggota);
         testFrame.setSize(500, 400);
         testFrame.setVisible(true);
-        testFrame.setTitle("Design Preview [PanelTambahAnggota]");
+        testFrame.setTitle("Panel Tambah Foto Anggota");
    }
    public void menuSimpanFileAnggotaAction () throws IOException {
          Perpustakaan.simpanFileAnggota();
