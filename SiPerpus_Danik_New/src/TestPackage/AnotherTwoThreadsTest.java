@@ -5,15 +5,16 @@
 
 package TestPackage;
 
-import com.model.SimpleThread;
+import com.model.AnotherSimpleThread;
 
 /**
  *
  * @author Asus
  */
-public class TwoThreadsTest {
+public class AnotherTwoThreadsTest {
 public static void main (String[] args) {
-new SimpleThread("Bali").start();
-new SimpleThread("Jogja").start();
+new AnotherSimpleThread("Bali");
+new AnotherSimpleThread("Jogja");
 }
+
 }
