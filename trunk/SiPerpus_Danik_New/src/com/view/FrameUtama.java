@@ -1,6 +1,8 @@
 package com.view;
 
 import com.model.Perpustakaan;
+import com.model.TimerBacaPublikasi;
+import com.model.TimerSimpanPublikasi;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +35,9 @@ public class FrameUtama extends JFrame {
    
    
    public FrameUtama () {
-       inisialisasi(); 
+       inisialisasi();
+       TimerBacaPublikasi timerBaca = new TimerBacaPublikasi(5000);
+       TimerSimpanPublikasi timerSimpan = new TimerSimpanPublikasi(5000);
    }
    
    public void inisialisasi () {
