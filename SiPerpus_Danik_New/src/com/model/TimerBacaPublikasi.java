@@ -13,9 +13,9 @@ import java.util.Timer;
  */
 public class TimerBacaPublikasi {
     private int waktuInterval;
-    public TimerBacaPublikasi(int waktuTunda) {
+    public TimerBacaPublikasi(int waktuInterval) {
         this.waktuInterval=waktuInterval;
         Timer timer = new Timer();
-      //  timer.schedule(new TugasBacaPublikasi(),0,waktuInterval);
+        timer.schedule(new TugasBacaPublikasi(),0,waktuInterval);
     }
 }

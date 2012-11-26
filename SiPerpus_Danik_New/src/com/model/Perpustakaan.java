@@ -17,6 +17,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class Perpustakaan {
+    private TimerBacaPublikasi TIMER_BACA_PUBLIKASI;
+    private TimerSimpanPublikasi TIMER_SIMPAN_PUBLIKASI;
     public static String NAMA = "PERPUSTAKAAN KU";
     public static ArrayList <Publikasi> DAFTAR_PUBLIKASI = new ArrayList<Publikasi>();
     public static ArrayList <Anggota> DAFTAR_ANGGOTA = new ArrayList<Anggota>();
@@ -204,7 +206,7 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
     }
     public static void simpanTabelPublikasi() {
         if (DAFTAR_PUBLIKASI.isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Daftar Publikasi Kosong");
+            JOptionPane.showMessageDialog(null,"Daftar Publikasi Kosong di fungsi simpanTabelPublikasi");
         } else {
             Connection conn = OraConnection.open("jdbc:oracle:thin:@172.23.9.185:1521:orcl","MHS115314023", "MHS115314023");
             try {
@@ -333,6 +335,9 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
             Logger.getLogger(Perpustakaan.class.getName()).log(Level.SEVERE, null, ex);
         }
    }
+    public void aturTimer (){
+
+    }
     public static ArrayList<Anggota> cariAnggota(String nama) {
         ArrayList<Anggota> hasil = new ArrayList<Anggota>();
         for (int i=0; i < DAFTAR_ANGGOTA.size(); i++) {
