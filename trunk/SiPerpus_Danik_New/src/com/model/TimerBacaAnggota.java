@@ -11,14 +11,11 @@ import java.util.Timer;
  *
  * @author Asus
  */
-public class TimerSimpanAnggota {
+public class TimerBacaAnggota {
 private int waktuInterval;
-
-    public TimerSimpanAnggota(int waktuInterval) {
-        this.waktuInterval = waktuInterval;
+    public TimerBacaAnggota(int waktuInterval) {
+        this.waktuInterval=waktuInterval;
         Timer timer = new Timer();
-        timer.schedule(new TugasSimpanAnggota(), 10000, waktuInterval);
-
-
+        timer.schedule(new TugasBacaAnggota(),0,waktuInterval);
     }
 }
