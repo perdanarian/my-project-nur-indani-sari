@@ -33,6 +33,7 @@ public class FrameUtama extends JFrame {
    private JMenuItem menuTambahFotoAnggota;
    private JMenuItem menuSimpanFilePinjaman;
    private JMenuItem menuBacaFilePinjaman;
+   private JMenuItem menuCariAnggota;
    
    
    public FrameUtama () {
@@ -73,6 +74,7 @@ public class FrameUtama extends JFrame {
        menuSimpanAnggotaKeTable = new JMenuItem("Simpan Ke Tabel");
        menuBacaAnggotaDariTable = new JMenuItem("Baca Dari Tabel");
        menuTambahFotoAnggota =  new JMenuItem("Tambah Foto Anggota");
+       menuCariAnggota = new JMenuItem ("Cari Anggota");
        menuAnggota.add(menuTambahAnggota);
        menuAnggota.add(menuSimpanFileAnggota);
        menuAnggota.add(menuBacaFileAnggota);
@@ -80,6 +82,7 @@ public class FrameUtama extends JFrame {
        menuAnggota.add(menuSimpanAnggotaKeTable);
        menuAnggota.add(menuBacaAnggotaDariTable);
        menuAnggota.add(menuTambahFotoAnggota);
+       menuAnggota.add(menuCariAnggota);
        menuTambahPinjaman = new JMenuItem ("Tambah Pinjaman");
        menuSimpanFilePinjaman = new JMenuItem("Simpan");
        menuBacaFilePinjaman = new JMenuItem ("Baca");
@@ -183,6 +186,11 @@ public class FrameUtama extends JFrame {
                menuBacaAnggotaDariTableAction();
            }
        });
+       menuCariAnggota.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent e) {
+               menuCariAnggotaAction();
+           }
+       });
    }
 
    public void menuTambahPublikasiAction () {
@@ -276,6 +284,14 @@ public class FrameUtama extends JFrame {
        JFrame frame = new JFrame("Using Java2D");
         frame.setLayout(new BorderLayout());
         PanelTambahFotoAnggota gc = new PanelTambahFotoAnggota();
+        frame.add(gc, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 600);
+        frame.setVisible(true);
+   }
+   public void menuCariAnggotaAction() {
+       JFrame frame = new JFrame();
+        PanelCariAnggota gc = new PanelCariAnggota();
         frame.add(gc, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 600);
