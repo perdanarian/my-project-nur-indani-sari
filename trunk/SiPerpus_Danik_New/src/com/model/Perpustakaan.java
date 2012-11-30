@@ -338,5 +338,17 @@ public static void tambahTabelPublikasi (Publikasi publikasi){
     public void aturTimer (){
 
     }
-
+    public static ArrayList<Anggota> cariAnggota(String nama) {
+        ArrayList<Anggota> hasil = new ArrayList<Anggota>();
+        for (int i=0; i < DAFTAR_ANGGOTA.size(); i++) {
+            Anggota temp = DAFTAR_ANGGOTA.get(i);
+            if (temp.getNama().contains(nama)){
+                hasil.add(temp);
+            }
+        }
+        if(hasil.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Data Tidak Ditemukan");
+        }
+        return hasil;
+    }
 }
